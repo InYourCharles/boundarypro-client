@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-cream font-sans text-base text-navy antialiased;
+  }
+
+  /* Headings use the display face; everything else uses the body face */
+  h1,
+  h2,
+  h3 {
+    @apply font-display tracking-tight text-navy;
+  }
+
+  /* Amounts line up in columns when every digit has the same width */
+  table,
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Keyboard users always see where they are */
+  :focus-visible {
+    outline: 3px solid theme('colors.amber.DEFAULT');
+    outline-offset: 2px;
+  }
+
+  /* Nothing moves for people who ask their system for less motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
